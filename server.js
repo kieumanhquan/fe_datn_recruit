@@ -6,7 +6,7 @@ const app = express();
 
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/angular-app-heroku'));
-
+app.setMaxListeners(0);
 app.get('/*', (req, res) =>
   res.sendFile('index.html', {root: 'dist/angular-app-heroku/'}),
 );
